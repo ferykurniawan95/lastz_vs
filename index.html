@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Last Z Calculator</title>
+
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background: #10131a;
+            color: white;
+            text-align: center;
+        }
+
+        .container {
+            max-width: 600px;
+            margin: auto;
+            padding: 30px 20px;
+        }
+
+        h1 {
+            color: #ffcc00;
+        }
+
+        .subtitle {
+            color: #aaa;
+            margin-bottom: 40px;
+        }
+
+        .event-card {
+            background: #1c212b;
+            border: 1px solid #333;
+            border-radius: 15px;
+            padding: 30px 20px;
+            cursor: pointer;
+            transition: 0.2s;
+        }
+
+        .event-card:hover {
+            transform: translateY(-3px);
+            border-color: #ffcc00;
+        }
+
+        .icon {
+            font-size: 50px;
+        }
+
+        .event-title {
+            font-size: 24px;
+            font-weight: bold;
+            margin-top: 15px;
+        }
+
+        .event-description {
+            color: #aaa;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="container">
+
+        <h1>LAST Z CALCULATOR</h1>
+
+        <div class="subtitle">
+            Survival Shooter Event Calculator
+        </div>
+
+        <div class="event-card" onclick="openAllianceDuel()">
+
+            <div class="icon">⚔️</div>
+
+            <div class="event-title">
+                Aliansi Duel
+            </div>
+
+            <div class="event-description">
+                CALCULATE YOUR ALLIANCE DUEL POINTS
+            </div>
+
+        </div>
+
+    </div>
+
+    <script>
+        function openAllianceDuel() {
+            alert("Aliansi Duel dipilih!");
+        }
+    </script>
+
+</body>
+</html>
