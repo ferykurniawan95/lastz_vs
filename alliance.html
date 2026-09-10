@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Alliance Duel - Last Z Calculator</title>
+
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background: #10131a;
+            color: white;
+        }
+
+        .container {
+            max-width: 600px;
+            margin: auto;
+            padding: 25px 20px 40px;
+        }
+
+        .back {
+            display: inline-block;
+            color: #aaa;
+            text-decoration: none;
+            margin-bottom: 25px;
+        }
+
+        .back:hover {
+            color: #ffcc00;
+        }
+
+        h1 {
+            color: #ffcc00;
+            text-align: center;
+            margin-bottom: 8px;
+        }
+
+        .subtitle {
+            text-align: center;
+            color: #999;
+            margin-bottom: 30px;
+        }
+
+        .days {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px;
+        }
+
+        .day-card {
+            background: #1c212b;
+            border: 1px solid #333;
+            border-radius: 15px;
+            padding: 25px 10px;
+            text-align: center;
+            cursor: pointer;
+            transition: 0.2s;
+        }
+
+        .day-card:hover {
+            border-color: #ffcc00;
+            transform: translateY(-3px);
+        }
+
+        .day-number {
+            font-size: 28px;
+            font-weight: bold;
+            color: #ffcc00;
+        }
+
+        .day-text {
+            margin-top: 8px;
+            color: #aaa;
+        }
+
+        @media (max-width: 400px) {
+            .days {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="container">
+
+        <a class="back" href="index.html">
+            ← Back
+        </a>
+
+        <h1>⚔️ ALLIANCE DUEL</h1>
+
+        <div class="subtitle">
+            Choose Date
+        </div>
+
+        <div class="days">
+
+            <div class="day-card" onclick="selectDay(1)">
+                <div class="day-number">Day 1 - Mod Vehicle Boost</div>
+                <div class="day-text">List Task</div>
+            </div>
+
+            <div class="day-card" onclick="selectDay(2)">
+                <div class="day-number">Day 2 - Shelter Upgrade</div>
+                <div class="day-text">List Task</div>
+            </div>
+
+            <div class="day-card" onclick="selectDay(3)">
+                <div class="day-number">Day 3 - Age Of Science</div>
+                <div class="day-text">List Task</div>
+            </div>
+
+            <div class="day-card" onclick="selectDay(4)">
+                <div class="day-number">Day 4 - Hero Progression</div>
+                <div class="day-text">Lihat Task</div>
+            </div>
+
+            <div class="day-card" onclick="selectDay(5)">
+                <div class="day-number">Day 5 - Holistic Growth</div>
+                <div class="day-text">Lihat Task</div>
+            </div>
+
+        </div>
+
+    </div>
+
+    <script>
+
+        function selectDay(day) {
+
+            window.location.href = "tasks.html?day=" + day;
+
+        }
+
+    </script>
+
+</body>
+</html>
