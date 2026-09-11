@@ -22,13 +22,9 @@
         }
         
         .logo {
-            max-width: 280px; /* Ubah angka ini sesuai ukuran yang diinginkan */
-            height: auto;     /* Menjaga proporsi gambar */
+            max-width: 280px; 
+            height: auto;     
             margin-bottom: 20px;
-        }
-        
-        h1 {
-            color: #ffcc00;
         }
 
         .subtitle {
@@ -36,13 +32,19 @@
             margin-bottom: 40px;
         }
 
+        /* Menggunakan Flexbox untuk menata ikon di kiri & teks di kanan */
         .event-card {
             background: #1c212b;
             border: 1px solid #333;
             border-radius: 15px;
-            padding: 30px 20px;
+            padding: 20px;
             cursor: pointer;
             transition: 0.2s;
+            
+            display: flex;          /* Mengatur tata letak menyamping */
+            align-items: center;    /* Menyejajarkan posisi secara vertikal (tengah) */
+            text-align: left;       /* Teks menjadi rata kiri */
+            gap: 20px;              /* Jarak antara ikon dan teks */
         }
 
         .event-card:hover {
@@ -50,21 +52,29 @@
             border-color: #ffcc00;
         }
 
+        /* Ukuran Ikon PNG */
         .icon {
-            width: 80px;       /* Sesuaikan lebar gambar sesuai kebutuhan */
-            height: auto;      /* Mempertahankan rasio tinggi gambar */
-            margin-bottom: 10px;
+            width: 50px;            /* Atur ukuran ikon sesuai kebutuhan */
+            height: auto;
+            flex-shrink: 0;         /* Mencegah gambar menyusut */
+        }
+
+        /* Pembungkus teks di sebelah kanan */
+        .event-info {
+            display: flex;
+            flex-direction: column;
         }
 
         .event-title {
-            font-size: 24px;
+            font-size: 20px;
             font-weight: bold;
-            margin-top: 15px;
+            color: white;
+            margin-bottom: 5px;
         }
 
         .event-description {
             color: #aaa;
-            margin-top: 10px;
+            font-size: 14px;
         }
     </style>
 </head>
@@ -73,22 +83,26 @@
 
     <div class="container">
         <!-- LOGO --> 
-        <img src="logo.png" alt="LAST Z Survival Shooter Logo" class="logo" >
+        <img src="logo.png" alt="LAST Z Survival Shooter Logo" class="logo">
         
-        <!-- <h1>LAST Z : SURVIVAL SHOOTER</h1>  -->
-
         <div class="subtitle">
             Choose Your Category
         </div>
 
+        <!-- EVENT CARD -->
         <div class="event-card" onclick="openAllianceDuel()">
-            <div class="event-title">
-                <img src="vs.png" alt="Alliance Duel Icon" class="icon">
-                ALLIANCE DUEL
-            </div>
 
-            <div class="event-description">
-                CALCULATE YOUR POINTS
+            <!-- IKON (SEBELAH KIRI) -->
+            <img src="vs.png" alt="Alliance Duel Icon" class="icon">
+
+            <!-- TEKS (SEBELAH KANAN) -->
+            <div class="event-info">
+                <div class="event-title">
+                    ALLIANCE DUEL
+                </div>
+                <div class="event-description">
+                    Calculate your points
+                </div>
             </div>
 
         </div>
