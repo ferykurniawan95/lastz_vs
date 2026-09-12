@@ -537,12 +537,27 @@
      * NUMBER FORMAT
      * ==========================================
      */
-
+/*
     function formatNumber(number) {
 
         return Math.round(number).toLocaleString("en-US");
 
+    }  */
+    function formatNumber(number) {
+
+        number = Math.round(number);
+    
+        if (number >= 1000000) {
+            return (number / 1000000).toFixed(1).replace(/\.0$/, "") + "M";
+        }
+    
+        if (number >= 1000) {
+            return (number / 1000).toFixed(1).replace(/\.0$/, "") + "K";
+        }
+    
+        return number.toString();
     }
+
 
 </script>
 
