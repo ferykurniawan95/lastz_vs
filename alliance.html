@@ -82,7 +82,16 @@
             flex-direction: column;
             gap: 15px;
         }
-
+        
+        .day-image {
+            width: 100%;
+            max-width: 180px;
+            height: 100px;
+            object-fit: contain;
+            display: block;
+            margin: 0 auto 12px;
+            border-radius: 10px;
+        }
         .day-card {
             background: #1c212b;
             border: 1px solid #333;
@@ -305,26 +314,32 @@
         <div class="days">
 
             <div class="day-card" onclick="selectDay(1)">
+                <img src="day1.png" alt="Day 1" class="day-image">
                 <div class="day-number">Day 1 - Mod Vehicle Boost</div>
             </div>
 
             <div class="day-card" onclick="selectDay(2)">
+                <img src="day2.png" alt="Day 2" class="day-image">
                 <div class="day-number">Day 2 - Shelter Upgrade</div>
             </div>
 
             <div class="day-card" onclick="selectDay(3)">
+                <img src="day3.png" alt="Day 3" class="day-image">
                 <div class="day-number">Day 3 - Age Of Science</div>
             </div>
 
             <div class="day-card" onclick="selectDay(4)">
+                <img src="day4.png" alt="Day 4" class="day-image">
                 <div class="day-number">Day 4 - Hero Progression</div>
             </div>
 
             <div class="day-card" onclick="selectDay(5)">
+                <img src="day5.png" alt="Day 5" class="day-image">
                 <div class="day-number">Day 5 - Holistic Growth</div>
             </div>
 
             <div class="day-card" onclick="selectDay(6)">
+                <img src="day6.png" alt="Day 6" class="day-image">
                 <div class="day-number">Day 6 - Enemy Buster</div>
             </div>
 
