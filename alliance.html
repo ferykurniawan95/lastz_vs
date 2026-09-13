@@ -333,9 +333,38 @@
 
     <script>
         function selectDay(day) {
+    
+            // Day 6: Show information wizard
+            if (day === 6) {
+                document
+                    .getElementById("enemyBusterWizard")
+                    .classList.add("active");
+    
+                return;
+            }
+    
+            // Days 1-5: Continue to calculator
             window.location.href = "tasks.html?day=" + day;
         }
+    
+        function closeEnemyBuster() {
+            document
+                .getElementById("enemyBusterWizard")
+                .classList.remove("active");
+        }
+    
+        // Close wizard when clicking outside the box
+        document
+            .getElementById("enemyBusterWizard")
+            .addEventListener("click", function(event) {
+    
+                if (event.target === this) {
+                    closeEnemyBuster();
+                }
+    
+            });
     </script>
+
 
 </body>
 </html>
