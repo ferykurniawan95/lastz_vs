@@ -707,49 +707,113 @@
      */
 
     document.querySelectorAll(".input-box").forEach(input => {
-
+    
         input.addEventListener("input", calculateTotal);
-
+    
     });
-
-
+    
+    
     function calculateTotal() {
-
+    
         let total = 0;
-
-        document.querySelectorAll(".input-box").forEach(input => {
-
-            let quantity = parseFloat(input.value) || 0;
-
-            const index = parseInt(input.dataset.index);
-
-            const points = currentDay.tasks[index].points;
-
-            total += quantity * points;
-
+    
+        currentDay.tasks.forEach((task, index) => {
+    
+            /* ==========================================
+               SPEED UP
+               Days + Hours + Minutes
+               ========================================== */
+    
+            if (task.type === "speedup") {
+    
+                const daysInput = document.querySelector(
+                    `.speed-input[data-index="${index}"][data-type="days"]`
+                );
+    
+                const hoursInput = document.querySelector(
+                    `.speed-input[data-index="${index}"][data-type="hours"]`
+                );
+    
+                const minutesInput = document.querySelector(
+                    `.speed-input[data-index="${index}"][data-type="minutes"]`
+                );
+    
+                const days = parseFloat(daysInput?.value) || 0;
+                const hours = parseFloat(hoursInput?.value) || 0;
+                const minutes = parseFloat(minutesInput?.value) || 0;
+    
+                const totalMinutes =
+                    (days * 24 * 60) +
+                    (hours * 60) +
+                    minutes;
+    
+                total += totalMinutes * task.points;
+            }
+    
+    
+            /* ==========================================
+               STRUCTURE POWER
+               Before → After
+               ========================================== */
+    
+            else if (task.type === "structure") {
+    
+                const beforeInput = document.querySelector(
+                    `.structure-input[data-index="${index}"][data-type="before"]`
+                );
+    
+                const afterInput = document.querySelector(
+                    `.structure-input[data-index="${index}"][data-type="after"]`
+                );
+    
+                const before = parseFloat(beforeInput?.value) || 0;
+                const after = parseFloat(afterInput?.value) || 0;
+    
+                const powerIncrease = Math.max(0, after - before);
+    
+                // 5 points for every 10 Structure Power
+                total += (powerIncrease / 10) * task.points;
+            }
+    
+    
+            /* ==========================================
+               NORMAL TASK
+               ========================================== */
+    
+            else {
+    
+                const input = document.querySelector(
+                    `.input-box[data-index="${index}"]`
+                );
+    
+                const quantity = parseFloat(input?.value) || 0;
+    
+                total += quantity * task.points;
+            }
+    
         });
-
+    
+    
         document.getElementById("totalPoints").textContent =
             formatNumber(total);
     }
-
-
-    /*
-     * ==========================================
-     * RESET
-     * ==========================================
-     */
-
+    
+    
+    /* ==========================================
+       RESET
+       ========================================== */
+    
     function resetCalculator() {
-
+    
         document.querySelectorAll(".input-box").forEach(input => {
-
+    
             input.value = 0;
-
+    
         });
-
+    
         calculateTotal();
     }
+
 
 
     /*
