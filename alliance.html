@@ -108,8 +108,180 @@
             color: #aaa;
             font-size: 14px;
         }
+
+        /* Enemy Buster Wizard */
+        .wizard-overlay {
+            display: none;
+            position: fixed;
+            inset: 0;
+            background: rgba(0, 0, 0, 0.75);
+            z-index: 999;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+        }
+        
+        .wizard-overlay.active {
+            display: flex;
+        }
+        
+        .wizard {
+            width: 100%;
+            max-width: 500px;
+            background: #1c212b;
+            border: 1px solid #444;
+            border-radius: 18px;
+            padding: 28px 22px;
+            text-align: center;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+            animation: wizardIn 0.25s ease;
+        }
+        
+        @keyframes wizardIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px) scale(0.96);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0) scale(1);
+            }
+        }
+        
+        .wizard-icon {
+            font-size: 50px;
+            margin-bottom: 10px;
+        }
+        
+        .wizard h2 {
+            color: #ffcc00;
+            margin: 5px 0 10px;
+            font-size: 26px;
+        }
+        
+        .wizard-subtitle {
+            color: #999;
+            font-size: 14px;
+            margin-bottom: 25px;
+        }
+        
+        .wizard-message {
+            color: #ddd;
+            line-height: 1.7;
+            font-size: 16px;
+        }
+        
+        .wizard-highlight {
+            margin: 20px 0;
+            padding: 18px;
+            border-radius: 12px;
+            background: #252b36;
+            border: 1px solid #3a414d;
+        }
+        
+        .wizard-points {
+            color: #ffcc00;
+            font-size: 38px;
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+        
+        .wizard-small {
+            color: #999;
+            font-size: 13px;
+        }
+        
+        .wizard-tip {
+            text-align: left;
+            margin: 20px 0;
+            padding: 0;
+            list-style: none;
+        }
+        
+        .wizard-tip li {
+            color: #ccc;
+            padding: 8px 0;
+        }
+        
+        .wizard-tip li::before {
+            content: "✓";
+            color: #ffcc00;
+            font-weight: bold;
+            margin-right: 10px;
+        }
+        
+        .wizard-close {
+            width: 100%;
+            padding: 13px;
+            border: none;
+            border-radius: 10px;
+            background: #ffcc00;
+            color: #111;
+            font-size: 16px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: 0.2s;
+        }
+        
+        .wizard-close:hover {
+            background: #ffe066;
+            transform: translateY(-2px);
+        }
+
     </style>
 </head>
+
+<!-- Enemy Buster Wizard -->
+<div class="wizard-overlay" id="enemyBusterWizard">
+
+    <div class="wizard">
+
+        <div class="wizard-icon">⚔️</div>
+
+        <h2>ENEMY BUSTER</h2>
+
+        <div class="wizard-subtitle">
+            Day 6 — No Calculator Needed
+        </div>
+
+        <div class="wizard-message">
+            <strong>Be patient.</strong><br>
+            Enemy Buster doesn't need a calculator.
+        </div>
+
+        <div class="wizard-highlight">
+            <div class="wizard-points">100M+</div>
+            <div class="wizard-small">
+                Points are achievable even for weaker players
+            </div>
+        </div>
+
+        <div class="wizard-message">
+            Your main goal is simple:
+        </div>
+
+        <ul class="wizard-tip">
+            <li>Participate in TVT.</li>
+            <li>Collect your TVT points.</li>
+            <li>Don't rush or waste resources.</li>
+            <li>Every player's contribution matters.</li>
+        </ul>
+
+        <div class="wizard-message">
+            Even the weakest player can score
+            <strong style="color:#ffcc00;">100M points</strong>
+            just by doing TVT.
+        </div>
+
+        <br>
+
+        <button class="wizard-close" onclick="closeEnemyBuster()">
+            GOT IT
+        </button>
+
+    </div>
+
+</div>
 
 <body>
 
