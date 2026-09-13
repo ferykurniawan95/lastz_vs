@@ -393,6 +393,88 @@
 
     ];
 
+    /*
+     * ==========================================
+     * DAY 2 - SHELTER UPGRADE
+     * ==========================================
+     */
+    const day2Tasks = [
+    
+        {
+            name: "Use 1 Minute Building Speed-Up",
+            points: 174,
+            type: "speedup"
+        },
+    
+        {
+            name: "Increase Structure Power by 10",
+            points: 5,
+            type: "structure"
+        },
+    
+        {
+            name: "Consume 1 Forging Stone",
+            points: 17400
+        },
+    
+        {
+            name: "Consume 1 Pulse Module",
+            points: 434900
+        },
+        
+        {
+            name: "Perform Orange Bounty",
+            points: 260900
+        },
+    
+        {
+            name: "Recruit 1 Orange Refugee",
+            points: 174000
+        },
+    
+        {
+            name: "Recruit 1 Purple Refugee",
+            points: 43500
+        },
+    
+        {
+            name: "Recruit 1 Blue Refugee",
+            points: 8700
+        },
+    
+        {
+            name: "Buy Packs Containing Diamonds",
+            points: 30
+        }
+    
+    ];
+
+    /*
+     * ==========================================
+     * DAY 3 - AGE OF SCIENCE
+     * ==========================================
+     */
+    const day3Tasks = [
+    
+    ];
+
+    /*
+     * ==========================================
+     * DAY 4 - HERO PROGRESSION
+     * ==========================================
+     */
+    const day4Tasks = [
+    
+    ];
+
+    /*
+     * ==========================================
+     * DAY 5 - JOLISTIC GROWTH
+     * ==========================================
+     */
+    const day5Tasks = [
+    
+    ];
 
     /*
      * ==========================================
@@ -405,11 +487,36 @@
             title: "DAY 1",
             subtitle: "Mod Vehicle Boost",
             tasks: day1Tasks
+        },
+        2: {
+            title: "DAY 2",
+            subtitle: "Shelter Upgrade",
+            tasks: day2Tasks
+        },
+        3: {
+            title: "DAY 3",
+            subtitle: "Age Of Science",
+            tasks: day3Tasks
+        },
+        4: {
+            title: "DAY 4",
+            subtitle: "Hero Progression",
+            tasks: day4Tasks
+        },
+        5: {
+            title: "DAY 5",
+            subtitle: "Holistic Growth",
+            tasks: day5Tasks
+        },
+        6: {
+            title: "DAY 6",
+            subtitle: "Enemy Buster",
+            tasks: day6Tasks
         }
-
         // Day 2, 3, 4, 5 and 6
         // can be added here later.
     };
+    
 
 
     /*
@@ -445,39 +552,199 @@
      */
 
     const taskList = document.getElementById("taskList");
-
+    
     currentDay.tasks.forEach((task, index) => {
-
+    
         const card = document.createElement("div");
-
+    
         card.className = "task-card";
-
-        card.innerHTML = `
-            <div class="task-name">
-                ${task.name}
-            </div>
-
-            <div class="task-bottom">
-
-                <div class="points">
-                    ${formatNumber(task.points)} pts
+    
+        // SPEED UP TASK
+        if (task.type === "speedup") {
+    
+            card.innerHTML = `
+                <div class="task-name">
+                    ${task.name}
                 </div>
-
-                <input
-                    type="number"
-                    min="0"
-                    step="1"
-                    value="0"
-                    class="input-box"
-                    data-index="${index}"
-                    aria-label="${task.name}"
-                >
-
-            </div>
-        `;
-
+    
+                <div class="task-bottom" style="display:block;">
+    
+                    <div class="points">
+                        ${formatNumber(task.points)} pts / minute
+                    </div>
+    
+                    <div style="
+                        display:flex;
+                        gap:8px;
+                        margin-top:12px;
+                        justify-content:flex-end;
+                    ">
+    
+                        <div>
+                            <input
+                                type="number"
+                                min="0"
+                                step="1"
+                                value="0"
+                                class="input-box speed-input"
+                                data-index="${index}"
+                                data-type="days"
+                                placeholder="Days"
+                                aria-label="Speed Up Days"
+                            >
+                            <div style="
+                                color:#777;
+                                font-size:11px;
+                                margin-top:3px;
+                            ">Days</div>
+                        </div>
+    
+                        <div>
+                            <input
+                                type="number"
+                                min="0"
+                                step="1"
+                                value="0"
+                                class="input-box speed-input"
+                                data-index="${index}"
+                                data-type="hours"
+                                placeholder="Hours"
+                                aria-label="Speed Up Hours"
+                            >
+                            <div style="
+                                color:#777;
+                                font-size:11px;
+                                margin-top:3px;
+                            ">Hours</div>
+                        </div>
+    
+                        <div>
+                            <input
+                                type="number"
+                                min="0"
+                                step="1"
+                                value="0"
+                                class="input-box speed-input"
+                                data-index="${index}"
+                                data-type="minutes"
+                                placeholder="Minutes"
+                                aria-label="Speed Up Minutes"
+                            >
+                            <div style="
+                                color:#777;
+                                font-size:11px;
+                                margin-top:3px;
+                            ">Minutes</div>
+                        </div>
+    
+                    </div>
+    
+                </div>
+            `;
+        }
+    
+        // STRUCTURE POWER TASK
+        else if (task.type === "structure") {
+    
+            card.innerHTML = `
+                <div class="task-name">
+                    ${task.name}
+                </div>
+    
+                <div class="task-bottom" style="display:block;">
+    
+                    <div class="points">
+                        ${formatNumber(task.points)} pts / 10 Power
+                    </div>
+    
+                    <div style="
+                        display:flex;
+                        gap:8px;
+                        margin-top:12px;
+                        justify-content:flex-end;
+                        align-items:center;
+                    ">
+    
+                        <div>
+                            <input
+                                type="number"
+                                min="0"
+                                step="1"
+                                value="0"
+                                class="input-box structure-input"
+                                data-index="${index}"
+                                data-type="before"
+                                placeholder="Before"
+                                aria-label="Structure Power Before Upgrade"
+                            >
+                            <div style="
+                                color:#777;
+                                font-size:11px;
+                                margin-top:3px;
+                            ">Before</div>
+                        </div>
+    
+                        <div style="color:#777;">
+                            →
+                        </div>
+    
+                        <div>
+                            <input
+                                type="number"
+                                min="0"
+                                step="1"
+                                value="0"
+                                class="input-box structure-input"
+                                data-index="${index}"
+                                data-type="after"
+                                placeholder="After"
+                                aria-label="Structure Power After Upgrade"
+                            >
+                            <div style="
+                                color:#777;
+                                font-size:11px;
+                                margin-top:3px;
+                            ">After</div>
+                        </div>
+    
+                    </div>
+    
+                </div>
+            `;
+        }
+    
+        // NORMAL TASK
+        else {
+    
+            card.innerHTML = `
+                <div class="task-name">
+                    ${task.name}
+                </div>
+    
+                <div class="task-bottom">
+    
+                    <div class="points">
+                        ${formatNumber(task.points)} pts
+                    </div>
+    
+                    <input
+                        type="number"
+                        min="0"
+                        step="1"
+                        value="0"
+                        class="input-box"
+                        data-index="${index}"
+                        data-type="normal"
+                        aria-label="${task.name}"
+                    >
+    
+                </div>
+            `;
+        }
+    
         taskList.appendChild(card);
     });
+
 
 
     /*
