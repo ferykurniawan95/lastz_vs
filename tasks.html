@@ -464,12 +464,14 @@
 
         {
             name: "Gather 1,000 Zents",
-            points: 16
+            points: 16,
+            type: "mining"
         },
 
         {
             name: "Gather 1,000 Resources (Wood, Electricity, Food)",
-            points: 5
+            points: 5,
+            type: "mining"
         },
 
         {
@@ -564,7 +566,64 @@
             points: 30
         }
     ];
-        
+
+    /*
+     * ==========================================
+     * DAY 4 - HERO PROGRESSION
+     * ==========================================
+     */
+    const day4Tasks = [
+        {
+            name: "Consume 1 Orange Hero Fragment",
+            points: 21700
+        },
+        {
+            name: "Consume 1 Purple Hero Fragment",
+            points: 7600
+        },
+        {
+            name: "Consume 1 Blue Hero Fragment",
+            points: 2100
+        },
+        {
+            name: "Consume 1 Exclusive Equipment Fragment",
+            points: 21700
+        },
+        {
+            name: "Perform 1 Prime Recruit",
+            points: 2600
+        },
+        {
+            name: "Consume 1 Power Core",
+            points: 2100
+        },
+        {
+            name: "Consume 1 Orange Equipment to Promote",
+            points: 1300000
+        },
+        {
+            name: "Consume 10 Enhancement Alloys",
+            points: 13,
+            type: "alloy"
+        },
+        {
+            name: "Consume 1 Orange Skill Book",
+            points: 43
+        },
+        {
+            name: "Consume 1 Hero Awakening Fragment",
+            points: 43500
+        },
+        {
+            name: "Consume 1 Exclusive Weapon Awakening Fragment",
+            points: 43500
+        },
+        {
+            name: "Buy Packs Containing Diamonds (Diamond x1)",
+            points: 30
+        }
+    ];
+    
     /*
      * ==========================================
      * DAY DATA
@@ -586,6 +645,16 @@
             title: "DAY 3",
             subtitle: "Age Of Science",
             tasks: day3Tasks
+        },
+        4: {
+            title: "DAY 4",
+            subtitle: "Hero Progression",
+            tasks: day4Tasks
+        },
+        5: {
+            title: "DAY 5",
+            subtitle: "Holistic Growth",
+            tasks: day4Tasks
         }
         // Day 2, 3, 4, 5 and 6
         // can be added here later.
@@ -896,7 +965,39 @@
                 total += (powerIncrease / 10) * task.points;
             }
     
+            /* ==========================================
+               Zent / RSS Gathering
+               input / 1000
+               ========================================== */
     
+            else if (task.type === "mining") {
+    
+               const input = document.querySelector(
+                    `.input-box[data-index="${index}"]`
+                );
+    
+                const quantity = parseFloat(input?.value) || 0;
+    
+                total += Math.round(quantity * task.points / 1000);
+                
+            }
+             /* ==========================================
+               Alloy
+               input / 10
+               ========================================== */
+    
+            else if (task.type === "alloy") {
+    
+               const input = document.querySelector(
+                    `.input-box[data-index="${index}"]`
+                );
+    
+                const quantity = parseFloat(input?.value) || 0;
+    
+                total += Math.round(quantity * task.points / 10);
+                
+            }
+                
             /* ==========================================
                NORMAL TASK
                ========================================== */
