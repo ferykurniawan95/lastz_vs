@@ -851,7 +851,7 @@
     
     
         document.getElementById("totalPoints").textContent =
-            formatNumber(total);
+            formatNumberTotal(total);
     }
     
     
@@ -877,12 +877,13 @@
      * NUMBER FORMAT
      * ==========================================
      */
-/*
-    function formatNumber(number) {
+
+    function formatNumberTotal(number) {
 
         return Math.round(number).toLocaleString("en-US");
 
-    }  */
+    } 
+    
     function formatNumber(number) {
 
         number = Math.round(number);
